@@ -143,7 +143,6 @@ const FeaturedProject: React.FC<ProjectProps> = ({
   title,
   description,
   category,
-  index,
   url,
   videoUrl,
   technologies,
