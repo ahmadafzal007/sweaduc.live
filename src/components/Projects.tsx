@@ -261,30 +261,7 @@ const Projects: React.FC = () => {
       url: "https://midl.comsats.edu.pk/",
       technologies: ["React", "TensorFlow", "Python", "WebGL", "AI Vision Models", "Speech Recognition"],
     },
-    {
-      image: "/projects/medtalk thumbnail.png",
-      title: "MedTalk",
-      description: "An innovative AI platform revolutionizing diagnosis through generative AI. Features intelligent disease-focused modules that detect conditions related to lungs, kidneys, and heart using visual prompting with sophisticated image recognition to enhance analysis of X-rays, ECGs, and other medical scans.",
-      category: "AI", // Changed from Healthcare to AI
-      videoUrl: "https://www.youtube.com/watch?v=ZIXDtovuW0o",
-      technologies: ["React", "TensorFlow.js", "Node.js", "MongoDB", "AI/ML", "Computer Vision"],
-    },
-    {
-      image: "/projects/ntuc thumbnail.png",
-      title: "NTUC LearningHub 3D Avatar Chatbot",
-      description: "A cutting-edge 3D avatar-based custom chatbot that offers an engaging and interactive user experience. The system features advanced speech-to-speech and text-to-speech communication capabilities to facilitate natural conversations with users.",
-      category: "AI",
-      url: "https://ntuclearninghub.vercel.app/",
-      technologies: ["Next.js", "Three.js", "WebGL", "Speech Recognition", "OpenAI", "3D Modeling"],
-    },
-    {
-      image: "/projects/nawalah thumbnail.png",
-      title: "Nawalah Platform",
-      description: "An innovative web platform addressing food wastage by connecting restaurants, grocery stores, welfare organizations, and customers. The ecosystem promotes sustainability by ensuring quality food and goods reach communities in need through a streamlined and efficient process.",
-      category: "E-commerce",
-      url: "https://nawalah.com/",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe", "GIS Mapping"],
-    },
+   
     {
       image: "/projects/meta thumbnail.png",
       title: "Meta Platform",
@@ -308,6 +285,30 @@ const Projects: React.FC = () => {
       category: "Web",
       url: "https://five-star-autodetailing.vercel.app/",
       technologies: ["Next.js", "TailwindCSS", "Framer Motion", "Responsive Design", "SEO Optimization"],
+    },
+    {
+      image: "/projects/medtalk thumbnail.png",
+      title: "MedTalk",
+      description: "An innovative AI platform revolutionizing diagnosis through generative AI. Features intelligent disease-focused modules that detect conditions related to lungs, kidneys, and heart using visual prompting with sophisticated image recognition to enhance analysis of X-rays, ECGs, and other medical scans.",
+      category: "AI", // Changed from Healthcare to AI
+      videoUrl: "https://www.youtube.com/watch?v=ZIXDtovuW0o",
+      technologies: ["React", "TensorFlow.js", "Node.js", "MongoDB", "AI/ML", "Computer Vision"],
+    },
+    {
+      image: "/projects/ntuc thumbnail.png",
+      title: "NTUC LearningHub 3D Avatar Chatbot",
+      description: "A cutting-edge 3D avatar-based custom chatbot that offers an engaging and interactive user experience. The system features advanced speech-to-speech and text-to-speech communication capabilities to facilitate natural conversations with users.",
+      category: "AI",
+      url: "https://ntuclearninghub.vercel.app/",
+      technologies: ["Next.js", "Three.js", "WebGL", "Speech Recognition", "OpenAI", "3D Modeling"],
+    },
+    {
+      image: "/projects/nawalah thumbnail.png",
+      title: "Nawalah Platform",
+      description: "An innovative web platform addressing food wastage by connecting restaurants, grocery stores, welfare organizations, and customers. The ecosystem promotes sustainability by ensuring quality food and goods reach communities in need through a streamlined and efficient process.",
+      category: "E-commerce",
+      url: "https://nawalah.com/",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe", "GIS Mapping"],
     }
   ]
 
