@@ -125,7 +125,7 @@ const Project: React.FC<ProjectProps> = ({
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <a href="#" className="inline-flex items-center text-xs text-orange-500 group/link">
+            <a href={url || videoUrl || "#"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs text-orange-500 group/link">
               <span className="mr-2">View Project</span>
               <span className="w-5 h-5 flex items-center justify-center bg-orange-500/10 group-hover/link:bg-orange-500 group-hover/link:text-white transition-all duration-300">
                 <ArrowRight size={10} />
@@ -207,7 +207,7 @@ const FeaturedProject: React.FC<ProjectProps> = ({
                 </div>
               )}
 
-              <div className="flex items-center gap-4 mt-4">
+              <div className="flex flex-wrap items-center gap-4 mt-4">
                 {url && (
                   <a
                     href={url}
@@ -249,22 +249,23 @@ const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("All")
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const categories = ["All", "Healthcare", "AI", "E-commerce", "Web", "Mobile"]
+  // Removed Healthcare category and added Mobile instead
+  const categories = ["All", "AI", "E-commerce", "Web", "Mobile"]
 
   const featuredProjects = [
     {
       image: "/projects/dcm thumbnail.jpg",
       title: "AI-Based DICOM Viewer",
       description: "A powerful 2D and 3D DICOM viewer that integrates AI-based diagnostics for CXR, mammograms, CT scans, and brain MRIs. It leverages a fine-tuned visual language model to assist healthcare specialists with intelligent, query-based diagnostic support.",
-      category: "Healthcare",
+      category: "AI", // Changed from Healthcare to AI
       url: "https://midl.comsats.edu.pk/",
       technologies: ["React", "TensorFlow", "Python", "WebGL", "AI Vision Models", "Speech Recognition"],
     },
     {
       image: "/projects/medtalk thumbnail.png",
       title: "MedTalk",
-      description: "An innovative healthcare platform revolutionizing diagnosis through generative AI. Features intelligent disease-focused modules that detect conditions related to lungs, kidneys, and heart using visual prompting with sophisticated image recognition to enhance analysis of X-rays, ECGs, and other medical scans.",
-      category: "Healthcare",
+      description: "An innovative AI platform revolutionizing diagnosis through generative AI. Features intelligent disease-focused modules that detect conditions related to lungs, kidneys, and heart using visual prompting with sophisticated image recognition to enhance analysis of X-rays, ECGs, and other medical scans.",
+      category: "AI", // Changed from Healthcare to AI
       videoUrl: "https://www.youtube.com/watch?v=ZIXDtovuW0o",
       technologies: ["React", "TensorFlow.js", "Node.js", "MongoDB", "AI/ML", "Computer Vision"],
     },
@@ -286,7 +287,7 @@ const Projects: React.FC = () => {
     },
     {
       image: "/projects/meta thumbnail.png",
-      title: "Meta Platform ",
+      title: "Meta Platform",
       description: "A feature-rich marketplace application built for an Australia-based client, enabling users to buy, sell, or rent properties, vehicles, electronics, and home décor. The platform supports in-app chat, advanced search and filtering, and admin-controlled ad featuring.",
       category: "E-commerce",
       url: "http://metaplatform.com.au/",
@@ -294,7 +295,7 @@ const Projects: React.FC = () => {
     },
     {
       image: "/projects/eft thumbnail.png",
-      title: "EFT Therapist ",
+      title: "EFT Therapist",
       description: "A Large Language Model (LLM)-powered Retrieval-Augmented Generation (RAG) application developed for a UK-based organization to support individuals coping with anxiety and depression. The chatbot guides users through emotional freedom techniques (tapping therapy).",
       category: "AI",
       url: "https://efttherapistai.vercel.app/",
@@ -316,14 +317,16 @@ const Projects: React.FC = () => {
       ? featuredProjects
       : featuredProjects.filter((project) => project.category === activeCategory)
 
-  // Pagination setup for grid view
-  const projectsPerPage = 6 // Increased to show more projects per page
-  const totalPages = Math.ceil((filteredFeaturedProjects.length - 1) / projectsPerPage) // Subtract 1 for featured project
+  // Dynamically adjust projects per page based on screen size
+  const projectsPerPage = 6
+  const totalPages = Math.max(1, Math.ceil((filteredFeaturedProjects.length - 1) / projectsPerPage)) // Subtract 1 for featured project
 
   // Get projects for current page, excluding the featured project
-  const currentPageProjects = filteredFeaturedProjects
-    .slice(1)
-    .slice(currentSlide * projectsPerPage, currentSlide * projectsPerPage + projectsPerPage)
+  const currentPageProjects = filteredFeaturedProjects.length > 1 
+    ? filteredFeaturedProjects
+        .slice(1)
+        .slice(currentSlide * projectsPerPage, currentSlide * projectsPerPage + projectsPerPage)
+    : []
 
   const nextSlide = () => {
     if (currentSlide < totalPages - 1) {
@@ -342,15 +345,15 @@ const Projects: React.FC = () => {
   }
 
   return (
-    <section id="projects" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="projects" className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-orange-500/5 blur-3xl"></div>
         <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+        <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 20 }}
@@ -366,7 +369,7 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-4xl font-bold mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6"
           >
             Featured Projects
           </motion.h2>
@@ -381,8 +384,8 @@ const Projects: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex justify-center mb-12">
+        {/* Category Filter - Scrollable on mobile */}
+        <div className="flex justify-center mb-10 md:mb-12 overflow-x-auto pb-2 hide-scrollbar">
           <motion.div
             className="inline-flex bg-black/40 backdrop-blur-sm border border-white/10 p-1"
             initial={{ opacity: 0, y: 20 }}
@@ -396,7 +399,7 @@ const Projects: React.FC = () => {
                   setActiveCategory(category)
                   setCurrentSlide(0)
                 }}
-                className={`px-4 py-2 text-xs font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-4 py-2 text-xs whitespace-nowrap font-medium transition-all duration-300 ${
                   activeCategory === category ? "bg-orange-500 text-white" : "text-gray-400 hover:text-white"
                 }`}
               >
@@ -412,7 +415,7 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mb-16"
+            className="mb-10 md:mb-16"
           >
             <FeaturedProject
               image={filteredFeaturedProjects[0].image}
@@ -429,7 +432,7 @@ const Projects: React.FC = () => {
 
         {/* Project Grid - Show remaining projects in a grid */}
         {filteredFeaturedProjects.length > 1 && (
-          <div className="relative mb-16">
+          <div className="relative mb-12 md:mb-16">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -437,7 +440,7 @@ const Projects: React.FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
               >
                 {currentPageProjects.map((project, index) => (
                   <Project
@@ -456,13 +459,13 @@ const Projects: React.FC = () => {
             </AnimatePresence>
 
             {totalPages > 1 && (
-              <div className="flex justify-center mt-12 gap-6">
+              <div className="flex justify-center mt-10 md:mt-12 gap-4 md:gap-6">
                 <button
                   onClick={prevSlide}
-                  className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-orange-500/50 hover:text-orange-500 transition-colors"
+                  className="w-8 h-8 md:w-10 md:h-10 border border-white/10 flex items-center justify-center hover:border-orange-500/50 hover:text-orange-500 transition-colors"
                   aria-label="Previous page"
                 >
-                  <ChevronLeft size={18} />
+                  <ChevronLeft size={16} className="md:size-18" />
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -480,10 +483,10 @@ const Projects: React.FC = () => {
 
                 <button
                   onClick={nextSlide}
-                  className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-orange-500/50 hover:text-orange-500 transition-colors"
+                  className="w-8 h-8 md:w-10 md:h-10 border border-white/10 flex items-center justify-center hover:border-orange-500/50 hover:text-orange-500 transition-colors"
                   aria-label="Next page"
                 >
-                  <ChevronRight size={18} />
+                  <ChevronRight size={16} className="md:size-18" />
                 </button>
               </div>
             )}
@@ -491,10 +494,10 @@ const Projects: React.FC = () => {
         )}
 
         {/* Call to Action */}
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-10 md:mt-16">
           <a
             href="#contact"
-            className="group relative overflow-hidden px-8 py-3 bg-black border border-orange-500/30 hover:border-orange-500 text-white font-medium transition-all duration-300"
+            className="group relative overflow-hidden px-6 sm:px-8 py-3 bg-black border border-orange-500/30 hover:border-orange-500 text-white font-medium transition-all duration-300 text-sm md:text-base"
           >
             <span className="relative z-10 flex items-center gap-2">
               Start Your Project
@@ -514,6 +517,17 @@ const Projects: React.FC = () => {
           </a>
         </div>
       </div>
+
+      {/* CSS for hiding scrollbar but allowing scroll */}
+      <style>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;  /* Chrome, Safari, Opera */
+        }
+      `}</style>
     </section>
   )
 }
