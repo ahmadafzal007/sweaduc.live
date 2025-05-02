@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-8 h-8 rounded-full bg-orange-500/10"
+            className="absolute w-8 h-8 rounded-sm bg-orange-500/10"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -118,7 +118,7 @@ const Hero: React.FC = () => {
             className="mb-6"
           >
             <motion.span
-              className="inline-block py-1 px-3 rounded-full bg-orange-500/20 text-orange-500 text-sm font-medium mb-4"
+              className="inline-block py-1 px-3 rounded-sm bg-orange-500/20 text-orange-500 text-sm font-medium mb-4"
               animate={{
                 boxShadow: [
                   "0 0 0 rgba(255, 107, 0, 0)",
@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
                   </motion.svg>
                 </span>
                 <motion.span
-                  className="absolute -inset-1 bg-orange-500/10 rounded-lg -z-10"
+                  className="absolute -inset-1 bg-orange-500/10 rounded-sm -z-10"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1 }}
@@ -194,7 +194,7 @@ const Hero: React.FC = () => {
           >
             <motion.a
               href="#contact"
-              className="group relative px-8 py-4 bg-orange-500 text-white font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 w-full sm:w-auto text-center overflow-hidden"
+              className="group relative px-8 py-4 bg-orange-500 text-white font-medium rounded-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 w-full sm:w-auto text-center overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -209,7 +209,7 @@ const Hero: React.FC = () => {
 
             <motion.a
               href="#services"
-              className="group relative px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-300 border border-white/20 w-full sm:w-auto text-center"
+              className="group relative px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-medium rounded-sm transition-all duration-300 border border-white/20 w-full sm:w-auto text-center"
               whileHover={{
                 scale: 1.05,
                 borderColor: "rgba(255, 107, 0, 0.5)",
@@ -217,7 +217,7 @@ const Hero: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <motion.span
-                className="absolute inset-0 rounded-full opacity-0 bg-gradient-to-r from-orange-500/10 to-transparent"
+                className="absolute inset-0 rounded-sm opacity-0 bg-gradient-to-r from-orange-500/10 to-transparent"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
@@ -238,14 +238,14 @@ const Hero: React.FC = () => {
         }}
       >
         <motion.div
-          className="w-64 h-64 rounded-2xl bg-gradient-to-br from-orange-500/20 to-black/40 backdrop-blur-sm p-5 border border-white/10"
+          className="w-64 h-64 rounded-md bg-gradient-to-br from-orange-500/20 to-black/40 backdrop-blur-sm p-5 border border-white/10"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
           <div className="w-full h-full flex flex-col justify-between">
             <div className="flex justify-between items-start">
-              <div className="w-10 h-10 rounded-full bg-orange-500/30 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-sm bg-orange-500/30 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 16L6 10H18L12 16Z" fill="#FF6B00" />
                 </svg>
@@ -257,12 +257,12 @@ const Hero: React.FC = () => {
               </div>
             </div>
             <div>
-              <div className="w-3/4 h-2 bg-white/20 rounded-full mb-2" />
-              <div className="w-1/2 h-2 bg-white/20 rounded-full" />
+              <div className="w-3/4 h-2 bg-white/20 rounded-sm mb-2" />
+              <div className="w-1/2 h-2 bg-white/20 rounded-sm" />
             </div>
             <div className="flex justify-between items-center">
-              <div className="w-10 h-10 rounded-full bg-white/10" />
-              <div className="w-20 h-8 rounded-full bg-orange-500/30" />
+              <div className="w-10 h-10 rounded-sm bg-white/10" />
+              <div className="w-20 h-8 rounded-sm bg-orange-500/30" />
             </div>
           </div>
         </motion.div>
@@ -283,7 +283,7 @@ const Hero: React.FC = () => {
           >
             Scroll to explore
           </motion.span>
-          <motion.div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
+          <motion.div className="w-6 h-10 rounded-sm border-2 border-white/30 flex justify-center pt-2">
             <motion.div
               className="w-1.5 h-1.5 rounded-full bg-orange-500"
               animate={{

@@ -3,15 +3,22 @@
 import type React from "react"
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { Linkedin, Twitter, Mail } from "lucide-react"
 
 interface TeamMemberProps {
   image: string
   name: string
   role: string
+  bio: string
   index: number
+  socialLinks: {
+    linkedin?: string
+    twitter?: string
+    email?: string
+  }
 }
 
-const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, index }) => {
+const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, bio, index, socialLinks }) => {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
@@ -21,20 +28,67 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, index }) => 
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group"
+      className="group h-full"
     >
-      <div className="relative overflow-hidden rounded-2xl mb-4 aspect-[3/4] bg-gradient-to-b from-orange-500/20 to-black/20">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
-        <img
-          src={image || "/placeholder.svg"}
-          alt={name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute bottom-0 left-0 w-full p-6 z-20">
-          <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-500 transition-colors">{name}</h3>
-          <p className="text-gray-300 text-sm">{role}</p>
+      <div className="relative h-full bg-black/40 backdrop-blur-sm border border-white/10 group-hover:border-orange-500/30 transition-all duration-500 flex flex-col">
+        {/* Image and gradient overlay */}
+        <div className="relative overflow-hidden aspect-[4/5]">
+          <img
+            src={image || "/placeholder.svg"}
+            alt={name}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-80"></div>
+
+          {/* Social links */}
+          <div className="absolute top-4 right-4 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {socialLinks.linkedin && (
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-orange-500 transition-colors duration-300"
+                aria-label={`${name}'s LinkedIn profile`}
+              >
+                <Linkedin size={14} />
+              </a>
+            )}
+            {socialLinks.twitter && (
+              <a
+                href={socialLinks.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-orange-500 transition-colors duration-300"
+                aria-label={`${name}'s Twitter profile`}
+              >
+                <Twitter size={14} />
+              </a>
+            )}
+            {socialLinks.email && (
+              <a
+                href={`mailto:${socialLinks.email}`}
+                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-orange-500 transition-colors duration-300"
+                aria-label={`Email ${name}`}
+              >
+                <Mail size={14} />
+              </a>
+            )}
+          </div>
+
+          {/* Name and role */}
+          <div className="absolute bottom-0 left-0 w-full p-6 z-10">
+            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-500 transition-colors">{name}</h3>
+            <div className="flex items-center">
+              <div className="w-6 h-0.5 bg-orange-500 mr-2"></div>
+              <p className="text-gray-300 text-sm">{role}</p>
+            </div>
+          </div>
         </div>
-        <div className="absolute inset-0 border-2 border-transparent group-hover:border-orange-500/50 rounded-2xl transition-all duration-300 z-20 pointer-events-none"></div>
+
+        {/* Bio section */}
+        <div className="p-6 flex-grow">
+          <p className="text-gray-400 text-sm leading-relaxed">{bio}</p>
+        </div>
       </div>
     </motion.div>
   )
@@ -46,54 +100,48 @@ const Team: React.FC = () => {
 
   const teamMembers = [
     {
-      image: "/placeholder.svg?height=400&width=300",
+      image: "/placeholder.svg?height=500&width=400",
       name: "Alex Morgan",
       role: "Chief Technology Officer",
+      bio: "With over 15 years of experience in software architecture and engineering leadership, Alex drives our technical vision and strategy, ensuring we deliver cutting-edge solutions.",
+      socialLinks: {
+        linkedin: "https://linkedin.com",
+        twitter: "https://twitter.com",
+        email: "alex@sweaduc.com",
+      },
     },
     {
-      image: "/placeholder.svg?height=400&width=300",
+      image: "/placeholder.svg?height=500&width=400",
       name: "Sarah Chen",
       role: "Lead Software Architect",
+      bio: "Sarah specializes in designing scalable and maintainable software systems. Her expertise in cloud architecture and distributed systems has been instrumental in our success.",
+      socialLinks: {
+        linkedin: "https://linkedin.com",
+        twitter: "https://twitter.com",
+        email: "sarah@sweaduc.com",
+      },
     },
     {
-      image: "/placeholder.svg?height=400&width=300",
+      image: "/placeholder.svg?height=500&width=400",
       name: "Michael Rodriguez",
       role: "AI Research Lead",
+      bio: "Michael leads our AI initiatives, bringing expertise in machine learning and natural language processing. He's passionate about creating AI solutions that solve real-world problems.",
+      socialLinks: {
+        linkedin: "https://linkedin.com",
+        twitter: "https://twitter.com",
+        email: "michael@sweaduc.com",
+      },
     },
     {
-      image: "/placeholder.svg?height=400&width=300",
+      image: "/placeholder.svg?height=500&width=400",
       name: "Jessica Kim",
       role: "Frontend Engineer",
-    },
-    {
-      image: "/placeholder.svg?height=400&width=300",
-      name: "David Patel",
-      role: "Backend Developer",
-    },
-    {
-      image: "/placeholder.svg?height=400&width=300",
-      name: "Emma Wilson",
-      role: "UX/UI Designer",
-    },
-    {
-      image: "/placeholder.svg?height=400&width=300",
-      name: "James Lee",
-      role: "DevOps Engineer",
-    },
-    {
-      image: "/placeholder.svg?height=400&width=300",
-      name: "Olivia Martinez",
-      role: "Data Scientist",
-    },
-    {
-      image: "/placeholder.svg?height=400&width=300",
-      name: "Robert Johnson",
-      role: "Mobile Developer",
-    },
-    {
-      image: "/placeholder.svg?height=400&width=300",
-      name: "Sophia Williams",
-      role: "Product Manager",
+      bio: "Jessica is an expert in creating beautiful, responsive, and accessible user interfaces. Her attention to detail and user-centric approach ensures exceptional digital experiences.",
+      socialLinks: {
+        linkedin: "https://linkedin.com",
+        twitter: "https://twitter.com",
+        email: "jessica@sweaduc.com",
+      },
     },
   ]
 
@@ -114,7 +162,7 @@ const Team: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="mb-4"
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-orange-500/20 text-orange-500 text-sm font-medium">
+            <span className="inline-block py-1 px-3 rounded-sm bg-orange-500/20 text-orange-500 text-sm font-medium">
               Our Team
             </span>
           </motion.div>
@@ -137,11 +185,49 @@ const Team: React.FC = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {teamMembers.map((member, index) => (
-            <TeamMember key={index} image={member.image} name={member.name} role={member.role} index={index} />
+            <TeamMember
+              key={index}
+              image={member.image}
+              name={member.name}
+              role={member.role}
+              bio={member.bio}
+              index={index}
+              socialLinks={member.socialLinks}
+            />
           ))}
         </div>
+
+        {/* Join the team CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center px-8 py-3 bg-black border border-orange-500/30 hover:border-orange-500 text-white font-medium transition-all duration-300 hover:bg-orange-500/10 group"
+          >
+            <span className="mr-2">Join Our Team</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transform transition-transform duration-300 group-hover:translate-x-1"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   )
