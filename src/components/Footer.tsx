@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     <footer className="py-12 border-t border-white/10 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full bg-navy-500/5 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
               className="mb-6"
             >
               <div className="text-2xl font-bold">
-                <span className="text-orange-500">swea</span>
+                <span className="text-navy-400">swea</span>
                 <span className="text-white">duc</span>
               </div>
             </motion.div>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
             >
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center hover:bg-navy-500 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center hover:bg-navy-500 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center hover:bg-navy-500 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-md bg-white/5 flex items-center justify-center hover:bg-navy-500 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,27 +134,27 @@ const Footer: React.FC = () => {
               className="space-y-2"
             >
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   Press
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   Partners
                 </a>
               </li>
@@ -177,27 +177,27 @@ const Footer: React.FC = () => {
               className="space-y-2"
             >
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   Web Development
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   Mobile Apps
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   AI Solutions
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   Enterprise Software
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors">
                   UX/UI Design
                 </a>
               </li>
@@ -230,11 +230,11 @@ const Footer: React.FC = () => {
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all"
+                className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-l-md focus:outline-none focus:ring-2 focus:ring-navy-500/50 focus:border-transparent transition-all"
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-r-lg transition-colors"
+                className="px-4 py-2 bg-navy-600 hover:bg-navy-700 text-white font-medium rounded-r-md transition-colors"
               >
                 Send
               </button>
@@ -252,13 +252,13 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} sweaduc. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors text-sm">
+            <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors text-sm">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors text-sm">
+            <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors text-sm">
               Terms of Service
             </a>
-            <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors text-sm">
+            <a href="#" className="text-gray-400 hover:text-navy-400 transition-colors text-sm">
               Cookie Policy
             </a>
           </div>

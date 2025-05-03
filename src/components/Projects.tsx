@@ -40,7 +40,7 @@ const Project: React.FC<ProjectProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-full bg-black/40 backdrop-blur-sm border-t border-l border-r border-white/10 transition-all duration-300 hover:border-orange-500/20 flex flex-col">
+      <div className="relative h-full bg-black/40 backdrop-blur-sm border-t border-l border-r border-white/10 transition-all duration-300 hover:border-navy-500/20 flex flex-col">
         {/* Image Container */}
         <div className="relative overflow-hidden aspect-[16/9]">
           <motion.img
@@ -54,7 +54,7 @@ const Project: React.FC<ProjectProps> = ({
 
           {/* Category Tag */}
           <div className="absolute top-0 left-0 z-20">
-            <span className="inline-block py-1 px-3 bg-orange-500 text-white text-[10px] uppercase tracking-wider font-medium">
+            <span className="inline-block py-1 px-3 bg-navy-500 text-white text-[10px] uppercase tracking-wider font-medium">
               {category}
             </span>
           </div>
@@ -87,14 +87,14 @@ const Project: React.FC<ProjectProps> = ({
 
           {/* Title Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-            <h3 className="text-lg font-bold text-white group-hover:text-orange-500 transition-colors duration-300 line-clamp-1">
+            <h3 className="text-lg font-bold text-white group-hover:text-navy-400 transition-colors duration-300 line-clamp-1">
               {title}
             </h3>
           </div>
         </div>
 
         {/* Content Container */}
-        <div className="p-4 flex flex-col flex-grow border-b border-white/10 group-hover:border-orange-500/20 transition-colors duration-300">
+        <div className="p-4 flex flex-col flex-grow border-b border-white/10 group-hover:border-navy-500/20 transition-colors duration-300">
           <p className="text-gray-400 text-sm line-clamp-3 mb-4">{description}</p>
 
           {/* Technologies */}
@@ -104,13 +104,13 @@ const Project: React.FC<ProjectProps> = ({
                 {technologies.slice(0, 4).map((tech, i) => (
                   <span
                     key={i}
-                    className="text-[10px] py-0.5 px-1.5 bg-white/5 text-gray-400 border-l border-orange-500/30"
+                    className="text-[10px] py-0.5 px-1.5 bg-white/5 text-gray-400 border-l border-navy-500/30"
                   >
                     {tech}
                   </span>
                 ))}
                 {technologies.length > 4 && (
-                  <span className="text-[10px] py-0.5 px-1.5 bg-white/5 text-gray-400 border-l border-orange-500/30">
+                  <span className="text-[10px] py-0.5 px-1.5 bg-white/5 text-gray-400 border-l border-navy-500/30">
                     +{technologies.length - 4}
                   </span>
                 )}
@@ -125,9 +125,9 @@ const Project: React.FC<ProjectProps> = ({
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <a href={url || videoUrl || "#"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs text-orange-500 group/link">
+            <a href="#" className="inline-flex items-center text-xs text-navy-500 group/link">
               <span className="mr-2">View Project</span>
-              <span className="w-5 h-5 flex items-center justify-center bg-orange-500/10 group-hover/link:bg-orange-500 group-hover/link:text-white transition-all duration-300">
+              <span className="w-5 h-5 flex items-center justify-center bg-navy-500/10 group-hover/link:bg-navy-500 group-hover/link:text-white transition-all duration-300">
                 <ArrowRight size={10} />
               </span>
             </a>
@@ -143,6 +143,7 @@ const FeaturedProject: React.FC<ProjectProps> = ({
   title,
   description,
   category,
+  index,
   url,
   videoUrl,
   technologies,
@@ -161,7 +162,7 @@ const FeaturedProject: React.FC<ProjectProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 hover:border-orange-500/20 transition-all duration-500">
+      <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 hover:border-navy-500/20 transition-all duration-500">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
           {/* Image Section */}
           <div className="relative overflow-hidden">
@@ -177,7 +178,7 @@ const FeaturedProject: React.FC<ProjectProps> = ({
 
             {/* Category Tag */}
             <div className="absolute top-0 left-0 z-20">
-              <span className="inline-block py-1 px-3 bg-orange-500 text-white text-xs uppercase tracking-wider font-medium">
+              <span className="inline-block py-1 px-3 bg-navy-500 text-white text-xs uppercase tracking-wider font-medium">
                 {category}
               </span>
             </div>
@@ -198,7 +199,7 @@ const FeaturedProject: React.FC<ProjectProps> = ({
                     {technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="text-xs py-0.5 px-2 bg-white/5 text-gray-300 border-l border-orange-500/30"
+                        className="text-xs py-0.5 px-2 bg-white/5 text-gray-300 border-l border-navy-500/30"
                       >
                         {tech}
                       </span>
@@ -207,16 +208,16 @@ const FeaturedProject: React.FC<ProjectProps> = ({
                 </div>
               )}
 
-              <div className="flex flex-wrap items-center gap-4 mt-4">
+              <div className="flex items-center gap-4 mt-4">
                 {url && (
                   <a
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-white hover:text-orange-500 transition-colors group/btn"
+                    className="flex items-center gap-2 text-sm text-white hover:text-navy-500 transition-colors group/btn"
                   >
-                    <div className="w-8 h-8 bg-white/5 flex items-center justify-center group-hover/btn:bg-orange-500/20 transition-colors">
-                      <Globe size={14} className="group-hover/btn:text-orange-500 transition-colors" />
+                    <div className="w-8 h-8 bg-white/5 flex items-center justify-center group-hover/btn:bg-navy-500/20 transition-colors rounded-sm">
+                      <Globe size={14} className="group-hover/btn:text-navy-500 transition-colors" />
                     </div>
                     <span>Visit Website</span>
                   </a>
@@ -226,10 +227,10 @@ const FeaturedProject: React.FC<ProjectProps> = ({
                     href={videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-white hover:text-orange-500 transition-colors group/btn"
+                    className="flex items-center gap-2 text-sm text-white hover:text-navy-500 transition-colors group/btn"
                   >
-                    <div className="w-8 h-8 bg-white/5 flex items-center justify-center group-hover/btn:bg-orange-500/20 transition-colors">
-                      <Youtube size={14} className="group-hover/btn:text-orange-500 transition-colors" />
+                    <div className="w-8 h-8 bg-white/5 flex items-center justify-center group-hover/btn:bg-navy-500/20 transition-colors rounded-sm">
+                      <Youtube size={14} className="group-hover/btn:text-navy-500 transition-colors" />
                     </div>
                     <span>Watch Demo</span>
                   </a>
@@ -249,7 +250,6 @@ const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("All")
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Removed Healthcare category and added Mobile instead
   const categories = ["All", "AI", "E-commerce", "Web", "Mobile"]
 
   const featuredProjects = [
@@ -312,22 +312,21 @@ const Projects: React.FC = () => {
     }
   ]
 
+  
   // Filter featured projects based on active category
   const filteredFeaturedProjects =
     activeCategory === "All"
       ? featuredProjects
       : featuredProjects.filter((project) => project.category === activeCategory)
 
-  // Dynamically adjust projects per page based on screen size
-  const projectsPerPage = 6
-  const totalPages = Math.max(1, Math.ceil((filteredFeaturedProjects.length - 1) / projectsPerPage)) // Subtract 1 for featured project
+  // Pagination setup for grid view
+  const projectsPerPage = 6 // Increased to show more projects per page
+  const totalPages = Math.ceil((filteredFeaturedProjects.length - 1) / projectsPerPage) // Subtract 1 for featured project
 
   // Get projects for current page, excluding the featured project
-  const currentPageProjects = filteredFeaturedProjects.length > 1 
-    ? filteredFeaturedProjects
-        .slice(1)
-        .slice(currentSlide * projectsPerPage, currentSlide * projectsPerPage + projectsPerPage)
-    : []
+  const currentPageProjects = filteredFeaturedProjects
+    .slice(1)
+    .slice(currentSlide * projectsPerPage, currentSlide * projectsPerPage + projectsPerPage)
 
   const nextSlide = () => {
     if (currentSlide < totalPages - 1) {
@@ -346,15 +345,15 @@ const Projects: React.FC = () => {
   }
 
   return (
-    <section id="projects" className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
+    <section id="projects" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-orange-500/5 blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl"></div>
+        <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-navy-500/5 blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-navy-500/10 blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 20 }}
@@ -362,7 +361,7 @@ const Projects: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="mb-4"
           >
-            <span className="inline-block py-1 px-3 bg-orange-500/10 border-l-2 border-orange-500 text-orange-500 text-xs uppercase tracking-wider font-medium">
+            <span className="inline-block py-1 px-3 bg-navy-500/10 border-l-2 border-navy-500 text-navy-400 text-xs uppercase tracking-wider font-medium">
               Our Work
             </span>
           </motion.div>
@@ -370,7 +369,7 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6"
+            className="text-3xl md:text-4xl font-bold mb-6"
           >
             Featured Projects
           </motion.h2>
@@ -385,10 +384,10 @@ const Projects: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Category Filter - Scrollable on mobile */}
-        <div className="flex justify-center mb-10 md:mb-12 overflow-x-auto pb-2 hide-scrollbar">
+        {/* Category Filter */}
+        <div className="flex justify-center mb-12">
           <motion.div
-            className="inline-flex bg-black/40 backdrop-blur-sm border border-white/10 p-1"
+            className="inline-flex bg-black/40 backdrop-blur-sm border border-white/10 p-1 rounded-md"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -400,8 +399,8 @@ const Projects: React.FC = () => {
                   setActiveCategory(category)
                   setCurrentSlide(0)
                 }}
-                className={`px-3 sm:px-4 py-2 text-xs whitespace-nowrap font-medium transition-all duration-300 ${
-                  activeCategory === category ? "bg-orange-500 text-white" : "text-gray-400 hover:text-white"
+                className={`px-4 py-2 text-xs font-medium transition-all duration-300 ${
+                  activeCategory === category ? "bg-navy-500 text-white" : "text-gray-400 hover:text-white"
                 }`}
               >
                 {category}
@@ -416,7 +415,7 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mb-10 md:mb-16"
+            className="mb-16"
           >
             <FeaturedProject
               image={filteredFeaturedProjects[0].image}
@@ -433,7 +432,7 @@ const Projects: React.FC = () => {
 
         {/* Project Grid - Show remaining projects in a grid */}
         {filteredFeaturedProjects.length > 1 && (
-          <div className="relative mb-12 md:mb-16">
+          <div className="relative mb-16">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -441,7 +440,7 @@ const Projects: React.FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 {currentPageProjects.map((project, index) => (
                   <Project
@@ -460,13 +459,13 @@ const Projects: React.FC = () => {
             </AnimatePresence>
 
             {totalPages > 1 && (
-              <div className="flex justify-center mt-10 md:mt-12 gap-4 md:gap-6">
+              <div className="flex justify-center mt-12 gap-6">
                 <button
                   onClick={prevSlide}
-                  className="w-8 h-8 md:w-10 md:h-10 border border-white/10 flex items-center justify-center hover:border-orange-500/50 hover:text-orange-500 transition-colors"
+                  className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-navy-500/50 hover:text-navy-500 transition-colors rounded-md"
                   aria-label="Previous page"
                 >
-                  <ChevronLeft size={16} className="md:size-18" />
+                  <ChevronLeft size={18} />
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -474,8 +473,8 @@ const Projects: React.FC = () => {
                     <button
                       key={i}
                       onClick={() => setCurrentSlide(i)}
-                      className={`w-2 h-2 transition-all duration-300 ${
-                        currentSlide === i ? "bg-orange-500 w-6" : "bg-white/20"
+                      className={`w-2 h-2 transition-all duration-300 rounded-full ${
+                        currentSlide === i ? "bg-navy-500 w-6" : "bg-white/20"
                       }`}
                       aria-label={`Go to page ${i + 1}`}
                     />
@@ -484,10 +483,10 @@ const Projects: React.FC = () => {
 
                 <button
                   onClick={nextSlide}
-                  className="w-8 h-8 md:w-10 md:h-10 border border-white/10 flex items-center justify-center hover:border-orange-500/50 hover:text-orange-500 transition-colors"
+                  className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-navy-500/50 hover:text-navy-500 transition-colors rounded-md"
                   aria-label="Next page"
                 >
-                  <ChevronRight size={16} className="md:size-18" />
+                  <ChevronRight size={18} />
                 </button>
               </div>
             )}
@@ -495,10 +494,10 @@ const Projects: React.FC = () => {
         )}
 
         {/* Call to Action */}
-        <div className="flex justify-center mt-10 md:mt-16">
+        <div className="flex justify-center mt-16">
           <a
             href="#contact"
-            className="group relative overflow-hidden px-6 sm:px-8 py-3 bg-black border border-orange-500/30 hover:border-orange-500 text-white font-medium transition-all duration-300 text-sm md:text-base"
+            className="group relative overflow-hidden px-8 py-3 bg-black border border-navy-500/30 hover:border-navy-500 text-white font-medium rounded-md transition-all duration-300"
           >
             <span className="relative z-10 flex items-center gap-2">
               Start Your Project
@@ -510,7 +509,7 @@ const Projects: React.FC = () => {
               </motion.span>
             </span>
             <motion.span
-              className="absolute inset-0 bg-orange-500 z-0"
+              className="absolute inset-0 bg-navy-500 z-0"
               initial={{ x: "-100%" }}
               whileHover={{ x: 0 }}
               transition={{ duration: 0.3 }}
@@ -518,17 +517,6 @@ const Projects: React.FC = () => {
           </a>
         </div>
       </div>
-
-      {/* CSS for hiding scrollbar but allowing scroll */}
-      <style>{`
-        .hide-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;  /* Chrome, Safari, Opera */
-        }
-      `}</style>
     </section>
   )
 }

@@ -3,6 +3,7 @@
 import type React from "react"
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion"
+import { ChevronRight, ArrowDown } from "lucide-react"
 
 const Hero: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -14,8 +15,12 @@ const Hero: React.FC = () => {
     offset: ["start start", "end start"],
   })
 
+  // Create transform functions at the top level
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+  const gridOpacity = useTransform(scrollYProgress, [0, 0.8], [0.7, 0])
+  const gridPointsScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.5])
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY } = e
@@ -41,13 +46,42 @@ const Hero: React.FC = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* Animated Background Elements */}
+      {/* Visible Grid Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-black"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[#050510]"></div>
+
+        {/* Animated Grid Pattern */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{
+            y: gridY,
+            opacity: gridOpacity,
+          }}
+        >
+          <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem]">
+            {/* Grid Highlight Points */}
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-4 h-4 rounded-full"
+                style={{
+                  left: `${15 + i * 15}%`,
+                  top: `${20 + (i % 3) * 20}%`,
+                  background:
+                    i % 2 === 0
+                      ? "radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0) 70%)"
+                      : "radial-gradient(circle, rgba(30, 58, 138, 0.3) 0%, rgba(30, 58, 138, 0) 70%)",
+                  scale: gridPointsScale,
+                }}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Animated gradient orbs with reduced opacity */}
         <motion.div style={{ y, opacity }} className="absolute top-0 left-0 w-full h-full">
-          {/* Animated gradient orbs */}
           <motion.div
-            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/20 blur-3xl"
+            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               x: [0, 30, 0],
@@ -60,7 +94,7 @@ const Hero: React.FC = () => {
             }}
           />
           <motion.div
-            className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-orange-500/10 blur-3xl"
+            className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-navy-500/5 blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
               x: [0, -40, 0],
@@ -72,41 +106,20 @@ const Hero: React.FC = () => {
               repeatType: "reverse",
             }}
           />
-        </motion.div>
-      </div>
-
-      {/* Animated Grid Pattern */}
-      <motion.div
-        className="absolute inset-0 z-0 opacity-20"
-        style={{
-          y: useTransform(scrollYProgress, [0, 1], ["0%", "30%"]),
-        }}
-      >
-        <div className="h-full w-full bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-      </motion.div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
           <motion.div
-            key={i}
-            className="absolute w-8 h-8 rounded-sm bg-orange-500/10"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
+            className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl"
             animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
+              scale: [1, 1.2, 1],
+              x: [0, 50, 0],
+              y: [0, 20, 0],
             }}
             transition={{
-              duration: 10 + Math.random() * 10,
+              duration: 12,
               repeat: Number.POSITIVE_INFINITY,
-              delay: i * 2,
+              repeatType: "reverse",
             }}
           />
-        ))}
+        </motion.div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -117,19 +130,22 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <motion.span
-              className="inline-block py-1 px-3 rounded-sm bg-orange-500/20 text-orange-500 text-sm font-medium mb-4"
+            <motion.div
+              className="inline-block py-1.5 px-4 rounded-full bg-gradient-to-r from-blue-500/10 to-navy-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-4"
               animate={{
                 boxShadow: [
-                  "0 0 0 rgba(255, 107, 0, 0)",
-                  "0 0 20px rgba(255, 107, 0, 0.5)",
-                  "0 0 0 rgba(255, 107, 0, 0)",
+                  "0 0 0 rgba(59, 130, 246, 0)",
+                  "0 0 20px rgba(59, 130, 246, 0.3)",
+                  "0 0 0 rgba(59, 130, 246, 0)",
                 ],
               }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
             >
-              Innovative Tech Solutions
-            </motion.span>
+              <span className="flex items-center">
+                <span className="w-2 h-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
+                Innovative Tech Solutions
+              </span>
+            </motion.div>
           </motion.div>
 
           <div className="overflow-hidden">
@@ -147,10 +163,10 @@ const Hero: React.FC = () => {
             >
               We Build{" "}
               <span className="relative inline-block">
-                <span className="text-orange-500 relative z-10">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-navy-500 relative z-10">
                   Digital Products
                   <motion.svg
-                    className="absolute -bottom-2 left-0 w-full h-3 text-orange-500/30"
+                    className="absolute -bottom-2 left-0 w-full h-3 text-blue-500/30"
                     viewBox="0 0 200 8"
                     xmlns="http://www.w3.org/2000/svg"
                     initial={{ pathLength: 0, opacity: 0 }}
@@ -166,7 +182,7 @@ const Hero: React.FC = () => {
                   </motion.svg>
                 </span>
                 <motion.span
-                  className="absolute -inset-1 bg-orange-500/10 rounded-sm -z-10"
+                  className="absolute -inset-1 bg-blue-500/10 rounded-sm -z-10"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1 }}
@@ -194,7 +210,7 @@ const Hero: React.FC = () => {
           >
             <motion.a
               href="#contact"
-              className="group relative px-8 py-4 bg-orange-500 text-white font-medium rounded-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 w-full sm:w-auto text-center overflow-hidden"
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-navy-600 text-white font-medium rounded-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 w-full sm:w-auto text-center overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -204,20 +220,23 @@ const Hero: React.FC = () => {
                 whileHover={{ width: "100%" }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="relative z-10">Start a Project</span>
+              <span className="relative z-10 flex items-center justify-center">
+                Start a Project
+                <ChevronRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
+              </span>
             </motion.a>
 
             <motion.a
               href="#services"
-              className="group relative px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-medium rounded-sm transition-all duration-300 border border-white/20 w-full sm:w-auto text-center"
+              className="group relative px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-medium rounded-sm transition-all duration-300 border border-white/10 hover:border-blue-500/30 w-full sm:w-auto text-center"
               whileHover={{
                 scale: 1.05,
-                borderColor: "rgba(255, 107, 0, 0.5)",
+                borderColor: "rgba(59, 130, 246, 0.5)",
               }}
               whileTap={{ scale: 0.95 }}
             >
               <motion.span
-                className="absolute inset-0 rounded-sm opacity-0 bg-gradient-to-r from-orange-500/10 to-transparent"
+                className="absolute inset-0 rounded-sm opacity-0 bg-blue-500/5"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
@@ -238,16 +257,16 @@ const Hero: React.FC = () => {
         }}
       >
         <motion.div
-          className="w-64 h-64 rounded-md bg-gradient-to-br from-orange-500/20 to-black/40 backdrop-blur-sm p-5 border border-white/10"
+          className="w-64 h-64 rounded-sm bg-gradient-to-br from-navy-500/20 to-blue-500/10 backdrop-blur-sm p-5 border border-white/10"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
           <div className="w-full h-full flex flex-col justify-between">
             <div className="flex justify-between items-start">
-              <div className="w-10 h-10 rounded-sm bg-orange-500/30 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-sm bg-blue-500/30 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 16L6 10H18L12 16Z" fill="#FF6B00" />
+                  <path d="M12 16L6 10H18L12 16Z" fill="#60A5FA" />
                 </svg>
               </div>
               <div className="flex space-x-1">
@@ -262,7 +281,7 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex justify-between items-center">
               <div className="w-10 h-10 rounded-sm bg-white/10" />
-              <div className="w-20 h-8 rounded-sm bg-orange-500/30" />
+              <div className="w-20 h-8 rounded-sm bg-blue-500/30" />
             </div>
           </div>
         </motion.div>
@@ -283,19 +302,12 @@ const Hero: React.FC = () => {
           >
             Scroll to explore
           </motion.span>
-          <motion.div className="w-6 h-10 rounded-sm border-2 border-white/30 flex justify-center pt-2">
-            <motion.div
-              className="w-1.5 h-1.5 rounded-full bg-orange-500"
-              animate={{
-                y: [0, 12, 0],
-                opacity: [1, 0.5, 1],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Number.POSITIVE_INFINITY,
-                repeatType: "loop",
-              }}
-            />
+          <motion.div
+            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+          >
+            <ArrowDown size={16} className="text-blue-400" />
           </motion.div>
         </div>
       </motion.div>

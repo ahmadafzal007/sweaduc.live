@@ -77,8 +77,8 @@ const Contact: React.FC = () => {
     <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-orange-500/5 blur-3xl"></div>
-        <div className="absolute bottom-1/3 left-0 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl"></div>
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-navy-500/5 blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-0 w-64 h-64 rounded-full bg-navy-500/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -90,7 +90,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="mb-4"
           >
-            <span className="inline-block py-1 px-3 rounded-sm bg-orange-500/20 text-orange-500 text-sm font-medium">
+            <span className="inline-block py-1 px-3 rounded-sm bg-navy-500/20 text-navy-400 text-sm font-medium">
               Get In Touch
             </span>
           </motion.div>
@@ -123,14 +123,14 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-black/40 backdrop-blur-sm rounded-sm p-6 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group flex items-center"
+              className="bg-black/40 backdrop-blur-sm rounded-sm p-6 border border-white/10 hover:border-navy-500/50 transition-all duration-300 group flex items-center"
               whileHover={{ y: -5 }}
             >
-              <div className="w-12 h-12 rounded-sm bg-orange-500/20 flex items-center justify-center mr-4 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+              <div className="w-12 h-12 rounded-sm bg-navy-500/20 flex items-center justify-center mr-4 text-navy-400 group-hover:bg-navy-500 group-hover:text-white transition-all duration-300">
                 {item.icon}
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-1 group-hover:text-orange-500 transition-colors">{item.title}</h3>
+                <h3 className="text-lg font-bold mb-1 group-hover:text-navy-400 transition-colors">{item.title}</h3>
                 <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{item.details}</p>
               </div>
             </motion.a>
@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-black/40 backdrop-blur-sm rounded-sm p-8 border border-white/10"
+          className="bg-black/40 backdrop-blur-sm rounded-md p-8 border border-white/10"
         >
           {isSubmitted ? (
             <motion.div
@@ -169,7 +169,7 @@ const Contact: React.FC = () => {
             <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium text-gray-300 flex items-center gap-2">
-                  <User size={14} className="text-orange-500" />
+                  <User size={14} className="text-navy-500" />
                   <span>Full Name</span>
                 </label>
                 <div className="relative">
@@ -179,12 +179,12 @@ const Contact: React.FC = () => {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500/50 focus:border-transparent transition-all"
                     placeholder="John Doe"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <div
-                      className={`w-1 h-6 transition-colors duration-300 ${formState.name ? "bg-orange-500" : "bg-white/10"}`}
+                      className={`w-1 h-6 transition-colors duration-300 ${formState.name ? "bg-navy-500" : "bg-white/10"}`}
                     ></div>
                   </div>
                 </div>
@@ -192,7 +192,7 @@ const Contact: React.FC = () => {
 
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-gray-300 flex items-center gap-2">
-                  <AtSign size={14} className="text-orange-500" />
+                  <AtSign size={14} className="text-navy-500" />
                   <span>Email Address</span>
                 </label>
                 <div className="relative">
@@ -202,12 +202,12 @@ const Contact: React.FC = () => {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500/50 focus:border-transparent transition-all"
                     placeholder="john@example.com"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <div
-                      className={`w-1 h-6 transition-colors duration-300 ${formState.email ? "bg-orange-500" : "bg-white/10"}`}
+                      className={`w-1 h-6 transition-colors duration-300 ${formState.email ? "bg-navy-500" : "bg-white/10"}`}
                     ></div>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ const Contact: React.FC = () => {
 
               <div className="space-y-2">
                 <label htmlFor="phone" className="text-sm font-medium text-gray-300 flex items-center gap-2">
-                  <Phone size={14} className="text-orange-500" />
+                  <Phone size={14} className="text-navy-500" />
                   <span>Phone Number</span>
                 </label>
                 <div className="relative">
@@ -224,12 +224,12 @@ const Contact: React.FC = () => {
                     id="phone"
                     value={formState.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500/50 focus:border-transparent transition-all"
                     placeholder="+1 (555) 123-4567"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <div
-                      className={`w-1 h-6 transition-colors duration-300 ${formState.phone ? "bg-orange-500" : "bg-white/10"}`}
+                      className={`w-1 h-6 transition-colors duration-300 ${formState.phone ? "bg-navy-500" : "bg-white/10"}`}
                     ></div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ const Contact: React.FC = () => {
 
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium text-gray-300 flex items-center gap-2">
-                  <MessageSquare size={14} className="text-orange-500" />
+                  <MessageSquare size={14} className="text-navy-500" />
                   <span>Subject</span>
                 </label>
                 <div className="relative">
@@ -247,12 +247,12 @@ const Contact: React.FC = () => {
                     value={formState.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500/50 focus:border-transparent transition-all"
                     placeholder="Project Inquiry"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <div
-                      className={`w-1 h-6 transition-colors duration-300 ${formState.subject ? "bg-orange-500" : "bg-white/10"}`}
+                      className={`w-1 h-6 transition-colors duration-300 ${formState.subject ? "bg-navy-500" : "bg-white/10"}`}
                     ></div>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ const Contact: React.FC = () => {
 
               <div className="space-y-2 md:col-span-2">
                 <label htmlFor="message" className="text-sm font-medium text-gray-300 flex items-center gap-2">
-                  <MessageSquare size={14} className="text-orange-500" />
+                  <MessageSquare size={14} className="text-navy-500" />
                   <span>Message</span>
                 </label>
                 <div className="relative">
@@ -270,12 +270,12 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500/50 focus:border-transparent transition-all resize-none"
                     placeholder="Tell us about your project..."
                   ></textarea>
                   <div className="absolute top-3 right-0 pr-3 flex items-start pointer-events-none">
                     <div
-                      className={`w-1 h-6 transition-colors duration-300 ${formState.message ? "bg-orange-500" : "bg-white/10"}`}
+                      className={`w-1 h-6 transition-colors duration-300 ${formState.message ? "bg-navy-500" : "bg-white/10"}`}
                     ></div>
                   </div>
                 </div>
@@ -285,7 +285,7 @@ const Contact: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-sm transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-orange-500/25 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full px-8 py-4 bg-navy-600 hover:bg-navy-700 text-white font-medium rounded-md transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-navy-500/25 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isSubmitting ? (
                     <>

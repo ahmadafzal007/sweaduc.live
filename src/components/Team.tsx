@@ -30,7 +30,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, bio, index, 
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group h-full"
     >
-      <div className="relative h-full bg-black/40 backdrop-blur-sm border border-white/10 group-hover:border-orange-500/30 transition-all duration-500 flex flex-col">
+      <div className="relative h-full bg-black/40 backdrop-blur-sm border border-white/10 group-hover:border-navy-500/30 transition-all duration-500 flex flex-col">
         {/* Image and gradient overlay */}
         <div className="relative overflow-hidden aspect-[4/5]">
           <img
@@ -47,7 +47,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, bio, index, 
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-orange-500 transition-colors duration-300"
+                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-navy-500 transition-colors duration-300"
                 aria-label={`${name}'s LinkedIn profile`}
               >
                 <Linkedin size={14} />
@@ -58,7 +58,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, bio, index, 
                 href={socialLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-orange-500 transition-colors duration-300"
+                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-navy-500 transition-colors duration-300"
                 aria-label={`${name}'s Twitter profile`}
               >
                 <Twitter size={14} />
@@ -67,7 +67,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, bio, index, 
             {socialLinks.email && (
               <a
                 href={`mailto:${socialLinks.email}`}
-                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-orange-500 transition-colors duration-300"
+                className="w-8 h-8 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-sm hover:bg-navy-500 transition-colors duration-300"
                 aria-label={`Email ${name}`}
               >
                 <Mail size={14} />
@@ -77,9 +77,9 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, role, bio, index, 
 
           {/* Name and role */}
           <div className="absolute bottom-0 left-0 w-full p-6 z-10">
-            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-500 transition-colors">{name}</h3>
+            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-navy-400 transition-colors">{name}</h3>
             <div className="flex items-center">
-              <div className="w-6 h-0.5 bg-orange-500 mr-2"></div>
+              <div className="w-6 h-0.5 bg-navy-500 mr-2"></div>
               <p className="text-gray-300 text-sm">{role}</p>
             </div>
           </div>
@@ -101,19 +101,19 @@ const Team: React.FC = () => {
   const teamMembers = [
     {
       image: "/placeholder.svg?height=500&width=400",
-      name: "Alex Morgan",
-      role: "Chief Technology Officer",
-      bio: "With over 15 years of experience in software architecture and engineering leadership, Alex drives our technical vision and strategy, ensuring we deliver cutting-edge solutions.",
+      name: "John Anderson",
+      role: "Chief Executive Officer",
+      bio: "John is a visionary leader with over 20 years of experience in the tech industry. He has successfully led multiple startups to acquisition and is passionate about building innovative solutions that transform businesses.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
-        email: "alex@sweaduc.com",
+        email: "john@sweaduc.com",
       },
     },
     {
       image: "/placeholder.svg?height=500&width=400",
       name: "Sarah Chen",
-      role: "Lead Software Architect",
+      role: "Chief Technology Officer",
       bio: "Sarah specializes in designing scalable and maintainable software systems. Her expertise in cloud architecture and distributed systems has been instrumental in our success.",
       socialLinks: {
         linkedin: "https://linkedin.com",
@@ -124,23 +124,12 @@ const Team: React.FC = () => {
     {
       image: "/placeholder.svg?height=500&width=400",
       name: "Michael Rodriguez",
-      role: "AI Research Lead",
-      bio: "Michael leads our AI initiatives, bringing expertise in machine learning and natural language processing. He's passionate about creating AI solutions that solve real-world problems.",
+      role: "Chief Operating Officer",
+      bio: "Michael oversees our day-to-day operations, ensuring efficient processes and optimal resource allocation. His strategic approach to business operations has driven our growth and client satisfaction.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
         email: "michael@sweaduc.com",
-      },
-    },
-    {
-      image: "/placeholder.svg?height=500&width=400",
-      name: "Jessica Kim",
-      role: "Frontend Engineer",
-      bio: "Jessica is an expert in creating beautiful, responsive, and accessible user interfaces. Her attention to detail and user-centric approach ensures exceptional digital experiences.",
-      socialLinks: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-        email: "jessica@sweaduc.com",
       },
     },
   ]
@@ -149,8 +138,8 @@ const Team: React.FC = () => {
     <section id="team" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-orange-500/5 blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl"></div>
+        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-navy-500/5 blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-navy-500/10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -162,7 +151,7 @@ const Team: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="mb-4"
           >
-            <span className="inline-block py-1 px-3 rounded-sm bg-orange-500/20 text-orange-500 text-sm font-medium">
+            <span className="inline-block py-1 px-3 rounded-sm bg-navy-500/20 text-navy-400 text-sm font-medium">
               Our Team
             </span>
           </motion.div>
@@ -172,7 +161,7 @@ const Team: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl font-bold mb-6"
           >
-            Meet Our Expert Engineers
+            Meet Our Leadership
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -180,12 +169,12 @@ const Team: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-gray-400"
           >
-            Our diverse team of talented professionals brings together expertise across various domains of software
-            engineering and design.
+            Our executive team brings together decades of experience in technology, business strategy, and operational
+            excellence.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {teamMembers.map((member, index) => (
             <TeamMember
               key={index}
@@ -208,7 +197,7 @@ const Team: React.FC = () => {
         >
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-8 py-3 bg-black border border-orange-500/30 hover:border-orange-500 text-white font-medium transition-all duration-300 hover:bg-orange-500/10 group"
+            className="inline-flex items-center justify-center px-8 py-3 bg-black border border-navy-500/30 hover:border-navy-500 text-white font-medium rounded-md transition-all duration-300 hover:bg-navy-500/10 group"
           >
             <span className="mr-2">Join Our Team</span>
             <svg

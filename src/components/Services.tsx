@@ -26,20 +26,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, fea
       className="h-full"
       whileHover={{ y: -5 }}
     >
-      <div className="relative h-full bg-black/40 backdrop-blur-sm border border-white/5 hover:border-orange-500/20 transition-all duration-300 overflow-hidden group">
+      <div className="relative h-full bg-black/40 backdrop-blur-sm border border-white/5 hover:border-navy-500/20 transition-all duration-300 overflow-hidden group rounded-sm">
         {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-navy-500"></div>
 
         {/* Content container */}
         <div className="relative p-6 md:p-8 h-full flex flex-col z-10">
           {/* Icon */}
           <div className="mb-6 flex items-center">
-            <div className="w-10 h-10 flex items-center justify-center text-orange-500">{icon}</div>
-            <div className="w-full h-[1px] ml-4 bg-gradient-to-r from-orange-500/30 to-transparent"></div>
+            <div className="w-10 h-10 flex items-center justify-center text-blue-400">{icon}</div>
+            <div className="w-full h-[1px] ml-4 bg-navy-500/30"></div>
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-500 transition-colors duration-300">
+          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
             {title}
           </h3>
 
@@ -57,7 +57,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, fea
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: i * 0.1 + 0.2 }}
                 >
-                  <div className="mr-3 mt-0.5 text-orange-500/70">
+                  <div className="mr-3 mt-0.5 text-blue-400">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M20 6L9 17L4 12"
@@ -76,7 +76,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, fea
 
           {/* Learn more link */}
           <div className="mt-6 pt-4 border-t border-white/5">
-            <a href="#" className="inline-flex items-center text-orange-500 text-xs font-medium group">
+            <a href="#" className="inline-flex items-center text-blue-400 text-xs font-medium group">
               <span>EXPLORE SERVICE</span>
               <svg
                 className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
@@ -183,7 +183,7 @@ const Services: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="mb-4 inline-block"
           >
-            <span className="inline-block py-1 px-3 bg-orange-500/10 text-orange-500 text-xs sm:text-sm font-medium">
+            <span className="inline-block py-1 px-3 bg-navy-500/10 text-blue-400 text-xs sm:text-sm font-medium rounded-sm">
               Our Expertise
             </span>
           </motion.div>
@@ -194,7 +194,7 @@ const Services: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
           >
-            <span className="text-white">Comprehensive</span> <span className="text-orange-500">Tech Services</span>
+            <span className="text-white">Comprehensive</span> <span className="text-blue-400">Tech Services</span>
           </motion.h2>
 
           <motion.p
@@ -230,7 +230,7 @@ const Services: React.FC = () => {
         >
           <a
             href="#"
-            className="inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 bg-black border border-orange-500/30 hover:border-orange-500 text-white font-medium transition-all duration-300 hover:bg-orange-500/10 group text-sm sm:text-base"
+            className="inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 bg-black border border-navy-500/30 hover:border-navy-500 text-white font-medium transition-all duration-300 hover:bg-navy-500/10 group rounded-sm text-sm sm:text-base"
           >
             <span>View All Services</span>
             <svg

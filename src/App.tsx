@@ -26,14 +26,19 @@ const App: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-black flex items-center justify-center">
+      <div className="fixed inset-0 bg-[#050510] flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold text-orange-500"
+          className="text-5xl font-bold"
         >
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-blue-400"
+          >
             swea
           </motion.span>
           <motion.span
@@ -50,11 +55,11 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="relative bg-black text-white overflow-hidden">
+    <div className="relative bg-[#050510] text-white overflow-hidden">
       <Cursor />
       <motion.div
         style={{ opacity }}
-        className="fixed top-0 left-0 w-full h-screen pointer-events-none z-10 bg-gradient-to-b from-black to-transparent"
+        className="fixed top-0 left-0 w-full h-screen pointer-events-none z-10 bg-gradient-to-b from-[#050510] to-transparent"
       />
       <Header />
       <Hero />
