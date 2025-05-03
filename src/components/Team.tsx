@@ -101,7 +101,7 @@ const Team: React.FC = () => {
   const teamMembers = [
     {
       image: "/placeholder.svg?height=500&width=400",
-      name: "John Anderson",
+      name: "Ali Hamza",
       role: "Chief Executive Officer",
       bio: "John is a visionary leader with over 20 years of experience in the tech industry. He has successfully led multiple startups to acquisition and is passionate about building innovative solutions that transform businesses.",
       socialLinks: {
@@ -111,8 +111,8 @@ const Team: React.FC = () => {
       },
     },
     {
-      image: "/placeholder.svg?height=500&width=400",
-      name: "Sarah Chen",
+      image: "/team/cto.jpeg",
+      name: "Ahmed Afzal",
       role: "Chief Technology Officer",
       bio: "Sarah specializes in designing scalable and maintainable software systems. Her expertise in cloud architecture and distributed systems has been instrumental in our success.",
       socialLinks: {
@@ -123,7 +123,7 @@ const Team: React.FC = () => {
     },
     {
       image: "/placeholder.svg?height=500&width=400",
-      name: "Michael Rodriguez",
+      name: "Ghulam Mujtaba",
       role: "Chief Operating Officer",
       bio: "Michael oversees our day-to-day operations, ensuring efficient processes and optimal resource allocation. His strategic approach to business operations has driven our growth and client satisfaction.",
       socialLinks: {
