@@ -143,7 +143,6 @@ const FeaturedProject: React.FC<ProjectProps> = ({
   title,
   description,
   category,
-  index,
   url,
   videoUrl,
   technologies,
@@ -312,7 +311,7 @@ const Projects: React.FC = () => {
     }
   ]
 
-  
+
   // Filter featured projects based on active category
   const filteredFeaturedProjects =
     activeCategory === "All"

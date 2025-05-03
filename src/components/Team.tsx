@@ -103,7 +103,7 @@ const Team: React.FC = () => {
       image: "/placeholder.svg?height=500&width=400",
       name: "Ali Hamza",
       role: "Chief Executive Officer",
-      bio: "John is a visionary leader with over 20 years of experience in the tech industry. He has successfully led multiple startups to acquisition and is passionate about building innovative solutions that transform businesses.",
+      bio: "Ali is a visionary leader with over 4 years of experience in the tech industry. He is passionate about building innovative solutions that transform businesses.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
@@ -114,7 +114,7 @@ const Team: React.FC = () => {
       image: "/team/cto.jpeg",
       name: "Ahmed Afzal",
       role: "Chief Technology Officer",
-      bio: "Sarah specializes in designing scalable and maintainable software systems. Her expertise in cloud architecture and distributed systems has been instrumental in our success.",
+      bio: "Ahmed specializes in designing scalable and maintainable software systems. Her expertise in cloud architecture and distributed systems has been instrumental in our success.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
@@ -125,7 +125,7 @@ const Team: React.FC = () => {
       image: "/placeholder.svg?height=500&width=400",
       name: "Ghulam Mujtaba",
       role: "Chief Operating Officer",
-      bio: "Michael oversees our day-to-day operations, ensuring efficient processes and optimal resource allocation. His strategic approach to business operations has driven our growth and client satisfaction.",
+      bio: "Mujtaba oversees our day-to-day operations, ensuring efficient processes and optimal resource allocation. His approach to business operations has driven our growth and client satisfaction.",
       socialLinks: {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
